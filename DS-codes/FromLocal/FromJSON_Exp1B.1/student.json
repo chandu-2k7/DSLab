@@ -1,0 +1,26 @@
+[
+    {
+        "Roll_no":101,
+        "Name":"Mammooty",
+        "Deaprtment":"Thriller",
+        "Ratings":4
+    },
+    {
+        "Roll_no":102,
+        "Name":"DQ",
+        "Deaprtment":"Drama",
+        "Ratings":5
+    },
+    {
+        "Roll_no":103,
+        "Name":"Tovino",
+        "Deaprtment":"Sci-Fi",
+        "Ratings":5
+    },
+    {
+        "Roll_no":104,
+        "Name":"Basil",
+        "Deaprtment":"Comedy",
+        "Ratings":4
+    }
+]

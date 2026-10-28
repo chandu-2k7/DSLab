@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tools · Data Science Laboratory</title>
+  <meta name="description" content="Frontend-only tools: JavaScript playground, JSON formatter, text to CSV converter, calculator and console." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/editor.css" />
+  <script defer src="https://unpkg.com/lucide@0.414.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-page="tools" data-title="Tools" data-crumb="Practice utilities">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="sidebar-root"></div>
+
+  <div class="app-main">
+    <div id="topbar-root"></div>
+
+    <main id="main" class="page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Tools</span>
+      </nav>
+
+      <section class="card detail-header">
+        <span class="badge badge-accent" style="margin-bottom:8px"><i data-lucide="wand-sparkles"></i> Practice utilities</span>
+        <h1>Tools</h1>
+        <p>
+          Five small utilities that run entirely in your browser. Nothing is sent to a
+          server, so they keep working offline (except the optional external code runner).
+        </p>
+      </section>
+
+      <div class="tool-tabs" role="tablist" aria-label="Available tools">
+        <button class="tool-tab" type="button" role="tab" data-tool="playground" aria-selected="true">
+          <i data-lucide="square-terminal"></i> Code Playground
+        </button>
+        <button class="tool-tab" type="button" role="tab" data-tool="json" aria-selected="false">
+          <i data-lucide="braces"></i> JSON Formatter
+        </button>
+        <button class="tool-tab" type="button" role="tab" data-tool="csv" aria-selected="false">
+          <i data-lucide="table-2"></i> Text → CSV
+        </button>
+        <button class="tool-tab" type="button" role="tab" data-tool="calculator" aria-selected="false">
+          <i data-lucide="calculator"></i> Calculator
+        </button>
+        <button class="tool-tab" type="button" role="tab" data-tool="console" aria-selected="false">
+          <i data-lucide="notebook-pen"></i> Console
+        </button>
+      </div>
+
+      <!-- ============ 1. Code Playground ============ -->
+      <section class="tool-panel active" data-tool-panel="playground" role="tabpanel" aria-label="Code playground">
+        <div class="notice notice-info mb-0" style="margin-bottom:16px">
+          <i data-lucide="shield-check"></i>
+          <span>JavaScript runs in a sandboxed Web Worker with a time limit, so it cannot touch the page or freeze it. The console below shows <code>console.log</code> output, return values and errors.</span>
+        </div>
+        <div id="playground-mount"></div>
+      </section>
+
+      <!-- ============ 2. JSON Formatter ============ -->
+      <section class="tool-panel" data-tool-panel="json" role="tabpanel" aria-label="JSON formatter">
+        <div class="tool-grid">
+          <div class="card card-pad">
+            <div class="panel-head">
+              <div class="panel-title"><i data-lucide="braces"></i> JSON input</div>
+              <button class="btn btn-ghost btn-sm" type="button" id="json-sample"><i data-lucide="sparkles"></i> Sample</button>
+            </div>
+            <textarea class="textarea" id="json-input" style="min-height:280px" spellcheck="false"
+              placeholder='{"name": "Vidya", "marks": [95, 88]}'></textarea>
+            <div class="toolbar mt-2">
+              <button class="btn btn-primary btn-sm" type="button" id="json-format"><i data-lucide="align-left"></i> Format</button>
+              <button class="btn btn-secondary btn-sm" type="button" id="json-minify"><i data-lucide="minimize-2"></i> Minify</button>
+              <button class="btn btn-secondary btn-sm" type="button" id="json-validate"><i data-lucide="check-check"></i> Validate</button>
+              <button class="btn btn-ghost btn-sm" type="button" id="json-clear"><i data-lucide="eraser"></i> Clear</button>
+            </div>
+          </div>
+          <div class="card card-pad">
+            <div class="panel-head">
+              <div class="panel-title"><i data-lucide="file-json-2"></i> Result</div>
+              <button class="btn btn-ghost btn-sm" type="button" id="json-copy"><i data-lucide="copy"></i> Copy</button>
+            </div>
+            <textarea class="textarea" id="json-output" style="min-height:280px" readonly spellcheck="false"
+              placeholder="Formatted JSON appears here…"></textarea>
+            <div class="tool-output-status" id="json-status" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 3. Text to CSV ============ -->
+      <section class="tool-panel" data-tool-panel="csv" role="tabpanel" aria-label="Text to CSV converter">
+        <div class="tool-grid">
+          <div class="card card-pad">
+            <div class="panel-head">
+              <div class="panel-title"><i data-lucide="table-2"></i> Text input</div>
+              <button class="btn btn-ghost btn-sm" type="button" id="csv-sample"><i data-lucide="sparkles"></i> Sample</button>
+            </div>
+            <textarea class="textarea" id="csv-input" style="min-height:220px" spellcheck="false"
+              placeholder="Paste tab, comma, semicolon or pipe separated text…"></textarea>
+            <div class="toolbar mt-2">
+              <label class="sr-only" for="csv-delim">Input separator</label>
+              <select class="select" id="csv-delim" style="max-width:170px">
+                <option value="auto">Auto-detect</option>
+                <option value="tab">Tab</option>
+                <option value="comma">Comma</option>
+                <option value="semicolon">Semicolon</option>
+                <option value="pipe">Pipe</option>
+                <option value="space">Space</option>
+                <option value="newline">Newline (one column)</option>
+              </select>
+              <label class="flex items-center gap-2 text-sm muted" style="gap:8px">
+                <input type="checkbox" id="csv-header" checked /> First row is header
+              </label>
+              <button class="btn btn-primary btn-sm" type="button" id="csv-convert"><i data-lucide="arrow-right-left"></i> Convert</button>
+            </div>
+          </div>
+          <div class="card card-pad">
+            <div class="panel-head">
+              <div class="panel-title"><i data-lucide="file-spreadsheet"></i> CSV output</div>
+              <div class="toolbar">
+                <button class="btn btn-ghost btn-sm" type="button" id="csv-copy"><i data-lucide="copy"></i> Copy</button>
+                <button class="btn btn-secondary btn-sm" type="button" id="csv-download"><i data-lucide="download"></i> Download .csv</button>
+              </div>
+            </div>
+            <textarea class="textarea" id="csv-output" style="min-height:220px" readonly spellcheck="false"
+              placeholder="CSV appears here…"></textarea>
+            <div class="tool-output-status" id="csv-status" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 4. Calculator ============ -->
+      <section class="tool-panel" data-tool-panel="calculator" role="tabpanel" aria-label="Calculator">
+        <div class="tool-grid">
+          <div class="card card-pad">
+            <div class="panel-title" style="margin-bottom:14px"><i data-lucide="calculator"></i> Calculator</div>
+            <div class="calc-display" id="calc-display" aria-live="polite">
+              <small class="calc-expr">0</small>
+              <span class="calc-result"></span>
+            </div>
+            <div class="calc-grid" id="calc-grid">
+              <button class="calc-btn fn" type="button" data-key="C">C</button>
+              <button class="calc-btn operator" type="button" data-key="(">(</button>
+              <button class="calc-btn operator" type="button" data-key=")">)</button>
+              <button class="calc-btn" type="button" data-key="back">⌫</button>
+
+              <button class="calc-btn" type="button" data-key="7">7</button>
+              <button class="calc-btn" type="button" data-key="8">8</button>
+              <button class="calc-btn" type="button" data-key="9">9</button>
+              <button class="calc-btn operator" type="button" data-key="/">÷</button>
+
+              <button class="calc-btn" type="button" data-key="4">4</button>
+              <button class="calc-btn" type="button" data-key="5">5</button>
+              <button class="calc-btn" type="button" data-key="6">6</button>
+              <button class="calc-btn operator" type="button" data-key="*">×</button>
+
+              <button class="calc-btn" type="button" data-key="1">1</button>
+              <button class="calc-btn" type="button" data-key="2">2</button>
+              <button class="calc-btn" type="button" data-key="3">3</button>
+              <button class="calc-btn operator" type="button" data-key="-">−</button>
+
+              <button class="calc-btn" type="button" data-key="0">0</button>
+              <button class="calc-btn" type="button" data-key=".">.</button>
+              <button class="calc-btn operator" type="button" data-key="%">%</button>
+              <button class="calc-btn operator" type="button" data-key="+">+</button>
+
+              <button class="calc-btn equals" type="button" data-key="=">=</button>
+            </div>
+          </div>
+          <div class="card card-pad">
+            <div class="panel-title"><i data-lucide="keyboard"></i> How to use</div>
+            <ul class="meta-list">
+              <li><i data-lucide="check"></i><span>Click the buttons or type on your keyboard.</span></li>
+              <li><i data-lucide="check"></i><span>Supported operators: <strong>+ − × ÷ % ^</strong> and brackets.</span></li>
+              <li><i data-lucide="check"></i><span><strong>Enter</strong> evaluates, <strong>Backspace</strong> deletes, <strong>Esc</strong> clears.</span></li>
+              <li><i data-lucide="check"></i><span>Uses a small built-in parser — no <code>eval()</code> involved.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 5. Console ============ -->
+      <section class="tool-panel" data-tool-panel="console" role="tabpanel" aria-label="Console utility">
+        <div class="card card-pad">
+          <div class="panel-head">
+            <div class="panel-title"><i data-lucide="notebook-pen"></i> Scratch console</div>
+            <div class="toolbar">
+              <button class="btn btn-ghost btn-sm" type="button" id="util-console-time"><i data-lucide="clock"></i> Log time</button>
+              <button class="btn btn-ghost btn-sm" type="button" id="util-console-clear"><i data-lucide="eraser"></i> Clear output</button>
+            </div>
+          </div>
+          <div class="console-output" id="util-console-output" aria-live="polite" style="border-radius:12px 12px 0 0"></div>
+          <div class="toolbar" style="padding:12px;background:var(--surface-2);border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px">
+            <input class="input" id="util-console-input" type="text" placeholder="Type a message and press Enter…" style="flex:1;min-width:200px" />
+            <button class="btn btn-primary btn-sm" type="button" id="util-console-log"><i data-lucide="corner-down-left"></i> Log</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+
+  <script defer src="js/config.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/code-samples.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/layout.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/runner.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/modules.js"></script>
+  <script defer src="js/experiments.js"></script>
+  <script defer src="js/tools.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>

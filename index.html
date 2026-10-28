@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Science Laboratory · Interactive Digital Lab Record</title>
+  <meta name="description" content="Interactive digital laboratory record for the Data Science lab: modules, experiments, code demonstrations and tools." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script defer src="https://unpkg.com/lucide@0.414.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-page="home" data-title="Home" data-crumb="Interactive Digital Lab Record">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="sidebar-root"></div>
+
+  <div class="app-main">
+    <div id="topbar-root"></div>
+
+    <main id="main" class="page">
+      <!-- ============================= HERO (SIDE BY SIDE) ============================= -->
+      <section class="hero" aria-label="Introduction and Profile">
+        <!-- Left: Project Introduction -->
+        <div class="card hero-intro">
+          <div>
+            <div class="eyebrow-pill">
+              <i data-lucide="sparkles"></i> Data Science Laboratory
+            </div>
+            <h1>Interactive Digital Lab Record</h1>
+            <p class="subtitle">Explore, practise and record your laboratory work.</p>
+            <p class="lead">
+              Explore laboratory experiments, study the module material, watch code
+              demonstrations and practise programming in an interactive environment.
+              Every experiment loads its real source code straight from the
+              <code>DS-codes</code> folder into a full code editor.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="experiments.html">
+              <i data-lucide="flask-conical"></i> Explore Experiments
+            </a>
+            <a class="btn btn-secondary" href="modules.html">
+              <i data-lucide="library-big"></i> View Modules
+            </a>
+          </div>
+
+          <div class="hero-badges-strip">
+            <span class="hero-badge-item"><i data-lucide="folder-code"></i> 7 Experiments</span>
+            <span class="hero-badge-item"><i data-lucide="git-branch"></i> 30 Sub-Labs</span>
+            <span class="hero-badge-item"><i data-lucide="book-open"></i> 5 Modules</span>
+            <span class="hero-badge-item"><i data-lucide="cpu"></i> Pyodide Python</span>
+          </div>
+        </div>
+
+        <!-- Right: Student Profile -->
+        <div class="card profile-card" aria-label="Student profile">
+          <div class="profile-head">
+            <div class="profile-avatar-wrap">
+              <img class="profile-avatar" src="assets/images/student-photo.jpg" alt="Student photo of E. Vidya Sagar" onerror="this.src='assets/images/avatar.svg'" />
+              <span class="profile-status-dot" title="Active Student"></span>
+            </div>
+            <div>
+              <h2>E. Vidya Sagar</h2>
+              <div class="role">
+                <span>Student · Data Science</span>
+                <span class="verified-chip"><i data-lucide="badge-check"></i> Verified</span>
+              </div>
+            </div>
+          </div>
+
+          <dl class="profile-meta">
+            <div class="profile-field">
+              <dt><i data-lucide="user"></i> Student Name</dt>
+              <dd>E. Vidya Sagar</dd>
+            </div>
+            <div class="profile-field">
+              <dt><i data-lucide="contact"></i> Roll No</dt>
+              <dd>24102A030024</dd>
+            </div>
+            <div class="profile-field">
+              <dt><i data-lucide="compass"></i> Branch</dt>
+              <dd>Data Science</dd>
+            </div>
+            <div class="profile-field">
+              <dt><i data-lucide="graduation-cap"></i> Professor</dt>
+              <dd>S. Bosu Babu</dd>
+            </div>
+            <div class="profile-field">
+              <dt><i data-lucide="hash"></i> Subject Code</dt>
+              <dd>220DS24</dd>
+            </div>
+            <div class="profile-field">
+              <dt><i data-lucide="book-marked"></i> Subject</dt>
+              <dd>Data Science Laboratory</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ==================== 3 MAIN CARDS: MODULES, EXPERIMENTS, TOOLS ==================== -->
+      <section class="hub-section" aria-label="Main Navigation">
+        <div class="hub-head">
+          <div>
+            <h2><i data-lucide="compass"></i> Quick Navigation</h2>
+            <p class="muted">Select a section below to access course modules, laboratory experiments, or practice tools.</p>
+          </div>
+        </div>
+
+        <div class="hub-grid">
+          <!-- 1. Modules Card -->
+          <a class="hub-card hub-card-modules" href="modules.html">
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <i data-lucide="library-big"></i>
+              </div>
+              <span class="hub-card-badge">5 Modules</span>
+            </div>
+            <div class="hub-card-body">
+              <h3>Modules</h3>
+              <div class="hub-card-subtitle">Syllabus & Course Curriculum</div>
+              <p>
+                Access comprehensive course modules, preview and download official syllabus guides, or add additional notes.
+              </p>
+            </div>
+            <div class="hub-card-action">
+              <span>View Modules</span>
+              <i data-lucide="arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- 2. Experiments Card -->
+          <a class="hub-card hub-card-experiments" href="experiments.html">
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <i data-lucide="flask-conical"></i>
+              </div>
+              <span class="hub-card-badge">7 Labs · 30 Parts</span>
+            </div>
+            <div class="hub-card-body">
+              <h3>Experiments</h3>
+              <div class="hub-card-subtitle">Hands-on Python Code & Workspaces</div>
+              <p>
+                Browse all 7 laboratory experiments, run real Python programs inside the Monaco code editor, view demonstration videos and output charts.
+              </p>
+            </div>
+            <div class="hub-card-action">
+              <span>Explore Experiments</span>
+              <i data-lucide="arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- 3. Tools Card -->
+          <a class="hub-card hub-card-tools" href="tools.html">
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <i data-lucide="wand-sparkles"></i>
+              </div>
+              <span class="hub-card-badge">Interactive Tools</span>
+            </div>
+            <div class="hub-card-body">
+              <h3>Tools</h3>
+              <div class="hub-card-subtitle">Playground & Developer Utilities</div>
+              <p>
+                JavaScript sandbox playground, JSON formatter & validator, text-to-CSV table converter, expression calculator, and interactive console.
+              </p>
+            </div>
+            <div class="hub-card-action">
+              <span>Open Tools</span>
+              <i data-lucide="arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+
+  <!-- Shared + data scripts (order matters) -->
+  <script defer src="js/config.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/code-samples.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/layout.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/runner.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/modules.js"></script>
+  <script defer src="js/experiments.js"></script>
+  <script defer src="js/tools.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>

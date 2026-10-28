@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modules · Data Science Laboratory</title>
+  <meta name="description" content="Study modules for the data science laboratory with PDF preview, download and the ability to add your own." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <script defer src="https://unpkg.com/lucide@0.414.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-page="modules" data-title="Modules" data-crumb="Course Syllabus">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="sidebar-root"></div>
+
+  <div class="app-main">
+    <div id="topbar-root"></div>
+
+    <main id="main" class="page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="current">Modules</span>
+      </nav>
+
+      <section class="card detail-header">
+        <span class="badge badge-accent" style="margin-bottom:8px"><i data-lucide="library-big"></i> Specialization Elective · 22DS102006</span>
+        <h1>Course Modules</h1>
+        <p>
+          Official syllabus notes, lecture summaries, and comprehensive curriculum references for Data Science.
+          Open any module to preview its complete syllabus PDF, view it in a new tab, or download it for offline revision.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="all-modules-title" style="margin-top:24px">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Curriculum Units</div>
+            <h2 id="all-modules-title">All Modules</h2>
+            <p>Official course modules covering fundamental concepts, feature extraction, visualization, statistics, and time series.</p>
+          </div>
+          <button class="btn btn-primary" type="button" data-add-module>
+            <i data-lucide="plus"></i> Add Module
+          </button>
+        </div>
+        <div class="grid grid-auto" data-modules-grid></div>
+      </section>
+    </main>
+
+    <div id="footer-root"></div>
+  </div>
+
+  <script defer src="js/config.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/code-samples.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/layout.js"></script>
+  <script defer src="js/navigation.js"></script>
+  <script defer src="js/runner.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/modules.js"></script>
+  <script defer src="js/experiments.js"></script>
+  <script defer src="js/tools.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>

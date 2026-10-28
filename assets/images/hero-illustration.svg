@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-label="Data science illustration">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#f7f9ff"/>
+    </linearGradient>
+    <linearGradient id="hb" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#4f6bff"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="480" rx="24" fill="url(#hbg)"/>
+  <rect x="60" y="60" width="600" height="360" rx="18" fill="#ffffff" stroke="#e2e8f5"/>
+  <rect x="60" y="60" width="600" height="46" rx="18" fill="#f4f6fd"/>
+  <circle cx="88" cy="83" r="6" fill="#ff7a7a"/><circle cx="110" cy="83" r="6" fill="#ffc46b"/><circle cx="132" cy="83" r="6" fill="#7ad39b"/>
+  <line x1="110" y1="360" x2="632" y2="360" stroke="#dfe6f5" stroke-width="2"/>
+  <rect x="140" y="270" width="46" height="90" rx="8" fill="url(#hb)" opacity="0.85"/>
+  <rect x="215" y="220" width="46" height="140" rx="8" fill="url(#hb)" opacity="0.9"/>
+  <rect x="290" y="180" width="46" height="180" rx="8" fill="url(#hb)"/>
+  <rect x="365" y="240" width="46" height="120" rx="8" fill="url(#hb)" opacity="0.9"/>
+  <rect x="440" y="150" width="46" height="210" rx="8" fill="url(#hb)"/>
+  <path d="M150 330 L240 280 L320 230 L400 250 L470 170 L560 200" fill="none" stroke="#7c5cff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="150" cy="330" r="6" fill="#7c5cff"/><circle cx="240" cy="280" r="6" fill="#7c5cff"/>
+  <circle cx="320" cy="230" r="6" fill="#7c5cff"/><circle cx="400" cy="250" r="6" fill="#7c5cff"/>
+  <circle cx="470" cy="170" r="6" fill="#7c5cff"/><circle cx="560" cy="200" r="6" fill="#7c5cff"/>
+  <circle cx="540" cy="140" r="34" fill="none" stroke="#ffc46b" stroke-width="6" opacity="0.8"/>
+  <path d="M566 166 L596 196" stroke="#ffc46b" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+</svg>

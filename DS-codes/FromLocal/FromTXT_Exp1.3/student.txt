@@ -1,0 +1,6 @@
+Roll_num	Name	Department	Percentage
+101	ABC	CSE	92.5
+102	DEF	ECE	89.0
+103	GHI	IT	95.2
+104	KLM	MECH	87.8
+105	NOP	CIVIL	91.4
